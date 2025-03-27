@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALBFIX - <%= `${title} ` %></title>
+    <link
+      href="/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <!-- Favicons -->
+    <link href="/images/favicon.ico" rel="icon" />
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="/vendor/simple-datatables/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <style>
+      input.tgl-radio-tab-child {
+        position: absolute;
+        left: -99999em;
+        top: -99999em;
+        opacity: 1;
+        z-index: 1;
+      }
+
+      input.tgl-radio-tab-child + label {
+        cursor: pointer;
+        float: left;
+        border: 1px solid #aaaaaa9c;
+        padding: 0.2em 0.3em;
+        position: relative;
+        margin-top: 5px;
+        margin-right: 5px;
+        border-radius: 5px;
+      }
+
+      input.tgl-radio-tab-child:not(:checked) + label:hover {
+        background-color: #eee;
+        color: #000;
+      }
+
+      [type="radio"]:checked + label {
+        color: #fff;
+    background-color: #01284b;
+        z-index: 1;
+      }
+      .hide {
+  display: none;
+}
+     
+    </style>
+  </head>
+  <body>
+    <section class="h-100 gradient-form" style="background-color: #eee">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                  <div class="card-body pt-4 p-md-5 mx-md-4">
+                    <div class="text-center">
+                      <img
+                        src="/images/logo4.svg"
+                        style="width: 185px"
+                        alt="logo"
+                      />
+                    </div>
+                    <% if (locals.flashes) { const categories =
+                    Object.keys(locals.flashes); %>
+                    <div class="notification-bar pb-2">
+                      <% for (var i = 0; i < categories.length; i++ ) { const
+                      category = categories[i]; const message =
+                      flashes[category]; for (var j = 0; j < message.length; j++
+                      ) { %>
+                      <div
+                        class="flash flash--<%- category %> d-flex justify-content-between align-items-center border border-<%- category %> rounded bg-white text-dark shadow-sm ps-3"
+                      >
+                        <p class="flash__text small m-0 pr-3 pl-3">
+                          <%- message %>
+                        </p>
+                        <button
+                          class="flash__remove border-0 bg-<%- category %> opacity-75 py-2 px-3 fw-bold"
+                          onClick="this.parentElement.remove()"
+                        >
+                          &times;
+                        </button>
+                      </div>
+                      <% } } %>
+                    </div>
+                    <% } %>
+
+                    <form
+                      class="needs-validation"
+                      novalidate
+               
+                      method="POST"
+                    >
+                      <!-- the value of input below can be changed to 'email', 'name', 'personalId' -->
+
+                     
+
+
+                      <div class="form-outline mb-4 ">
+                        <label for="yourPassword" class="form-label"
+                          >Fjalëkalimi</label
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="yourPassword"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Ju lutemi shënoni fjalëkalimin!
+                        </div>
+                      </div>
+
+
+                      <div class="form-outline mb-4 ">
+                        <label for="password-confirm" class="form-label"
+                          >Konfirmo Fjalëkalimin</label
+                        >
+                        <input
+                          type="password"
+                          name="password-confirm"
+                          class="form-control"
+                          id="password-confirm"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Ju lutemi konfirmoni fjalëkalimin!
+                        </div>
+                      </div>
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button
+                          class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                          type="submit"
+                        >
+                          Ndrysho Fjalëkalimin
+                        </button>
+                      </div>
+              
+                    </form>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
+</html>

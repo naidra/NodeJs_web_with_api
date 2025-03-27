@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    <%= `${title} ` %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel='stylesheet' href='/styles/mapsjs-ui.css' />
+  <link rel='stylesheet' href='/styles/style.css' />
+  <link rel='shortcut icon' type="image/png" href="/images/icons/doughnut.png" />
+  <link href="/fonts/panama-bold-webfont.woff" type="text/css" rel="stylesheet" />
+  <link href="/fonts/panama-bold-webfont.woff2" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <%- body %>
+
+    <script>
+      const here_maps_api_key = "<%= process.env.HERE_MAP_KEY %>";
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="/javascripts/libraries/domPurifyer.js"></script>
+    <script src="/javascripts/delicious-app.js" type="module"></script>
+</body>
+
+</html>

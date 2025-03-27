@@ -1,0 +1,16 @@
+{
+   "version": 2,
+   "name": "ALBFIX_NODEJS",
+   "builds": [
+      {
+         "src": "start.js",
+         "use": "@vercel/node"
+      }
+   ],
+   "routes": [
+      {
+         "src": "/(.*)",
+         "dest": "/start.js"
+      }
+   ]
+}
