@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const { promisify } = require('es6-promisify');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
@@ -14,6 +15,9 @@ require('./handlers/passport');
 
 // create our Express app
 const app = express();
+
+// Configure CORS to allow requests from any origin
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our ejs files
